@@ -32,14 +32,12 @@ function openOriginalImage(event) {
     event.preventDefault();
 
     if (event.target.classList.contains('gallery__image')) {
-        const instance = basicLightbox.create(`<img src="${event.target.dataset.source}" width="800" height="600">`,
-            // {
-            //     onClose: instance => document.removeEventListener('keydown', onEscClick),
-            // },
+        const instance = basicLightbox.create(
+            `<img src="${event.target.dataset.source}" width="800" height="600">`
         );
         instance.show();
-    
 
+        // 3. Закрытие с клавиатуры
         document.addEventListener('keydown', onEscClick);
         function onEscClick(event) {
             if (event.code === 'Escape') {
